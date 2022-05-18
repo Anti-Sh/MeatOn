@@ -1,69 +1,62 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using MySql.Data.MySqlClient;
 
 namespace MeatOn
 {
     static class DB
     {
-        private static string connectString;
-        static MySqlConnection myConnection;
-        static string SQLServerName = "localhost";
-        static int port = 3306;
-        static string dataBase = "meaton";
-        static string username = "root";
-        static string password = "";
-        public static void OpenConnection()
+        private static string connectString; // Объявление Строки подключения - статического поля класса 
+        static MySqlConnection myConnection; // Объявление переменной подключения - статического поля класса 
+        static string SQLServerName = "localhost"; // ip хоста MySqlServer
+        static int port = 3306; // порт MySqlServer
+        static string dataBase = "meaton"; // Название БД
+        static string username = "root"; // Имя пользователя
+        static string password = ""; // Пароль
+        public static void OpenConnection() // Статический метод, открывающий соединение с БД
         {
             connectString = "Server=" + SQLServerName + ";Database=" + dataBase
-                + ";port=" + port + ";User Id=" + username + ";password=" + password;
+                + ";port=" + port + ";User Id=" + username + ";password=" + password; // Строка подключения к базе данных
 
-            myConnection = new MySqlConnection(connectString);
-            myConnection.Open();
+            myConnection = new MySqlConnection(connectString); // Создание экземпляра класса MySqlConnection
+            myConnection.Open(); // Открытие соединения
         }
 
-        public static List<string[]> ExecuteQuery(string query, int col)
+        public static List<string[]> ExecuteQuery(string query, int col) // Статический Метод для выполнения запроса, где возвращаемым элементом является массив полей и строк
         {
-            // SELECT многих значений (несколько столбцов или строк)
-            MySqlCommand command = new MySqlCommand(query, myConnection);
-            MySqlDataReader reader = command.ExecuteReader();
-            List<string[]> response = new List<string[]>();
+            MySqlCommand command = new MySqlCommand(query, myConnection); // Создание экземпляра класса MySqlCommand
+            MySqlDataReader reader = command.ExecuteReader(); // Объявление объекта класса MySqlDataReader
+            List<string[]> response = new List<string[]>(); // Список, в который будут помещаться массивы полей
             while (reader.Read())
             {
-                response.Add(new string[col]);
+                response.Add(new string[col]); // Добавление в список массива с "col" элементов
                 for (int i = 0; i < col; i++)
-                    response[response.Count - 1][i] = reader[i].ToString();
+                    response[response.Count - 1][i] = reader[i].ToString(); // Заполнение добавленного массива
             }
-            reader.Close();
-            if (response.Count != 0)
+            reader.Close(); // Закрытие Reader'a
+            if (response.Count != 0) // Если список response пустой, тогда вывод NULL
                 return response;
             else
                 return null;
         }
 
-        public static string ExecuteQuery(string query)
+        public static string ExecuteQuery(string query) // Статический Метод для выполнения запроса, где возвращаемым элементом является только одно поле
         {
-            // SELECT одного значения
-            MySqlCommand command = new MySqlCommand(query, myConnection);
-            MySqlDataReader reader = command.ExecuteReader();
-            string response = null;
+            MySqlCommand command = new MySqlCommand(query, myConnection); // Создание экземпляра класса MySqlCommand
+            MySqlDataReader reader = command.ExecuteReader(); // Объявление объекта класса MySqlDataReader
+            string response = null; // Строка, в которую будет записан результат выполнения запроса
             while (reader.Read())
             {
                 response = reader[0].ToString();
             }
-            reader.Close();
-            return response;
+            reader.Close();  // Закрытие Reader'a
+            return response; // Возвращение полученной строки (поля)
         }
-        public static void ExecuteQueryWithoutResponse(string query)
+        public static void ExecuteQueryWithoutResponse(string query) // Статический Метод для выполнения запроса, который не возвращает поля (INSERT, EXECUTE)
         {
-            // INSERT and EXECUTE
             MySqlCommand command = new MySqlCommand(query, myConnection);
             command.ExecuteNonQuery();
         }
-        public static void CloseConnection()
+        public static void CloseConnection() // Закрытие соединения с БД
         {
             myConnection.Close();
         }
