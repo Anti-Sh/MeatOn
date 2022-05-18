@@ -123,6 +123,7 @@
             // inputType
             // 
             this.inputType.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.inputType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.inputType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.inputType.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.inputType.ForeColor = System.Drawing.Color.White;
@@ -331,6 +332,7 @@
             // querySelect
             // 
             this.querySelect.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.querySelect.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.querySelect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.querySelect.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.querySelect.ForeColor = System.Drawing.Color.White;
@@ -348,6 +350,7 @@
             // selectOrders
             // 
             this.selectOrders.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.selectOrders.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.selectOrders.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.selectOrders.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.selectOrders.ForeColor = System.Drawing.Color.White;
