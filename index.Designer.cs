@@ -144,7 +144,7 @@
             this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(5, 67);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(474, 90);
+            this.groupBox1.Size = new System.Drawing.Size(509, 90);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Входные данные";
@@ -154,7 +154,7 @@
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(356, 50);
+            this.button1.Location = new System.Drawing.Point(398, 50);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(105, 30);
             this.button1.TabIndex = 0;
@@ -173,9 +173,10 @@
             this.orderDishes.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.orderDishes.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.orderDishes.CausesValidation = false;
+            this.orderDishes.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(184)))), ((int)(((byte)(56)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
@@ -188,7 +189,7 @@
             this.cost});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(184)))), ((int)(((byte)(56)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
@@ -208,21 +209,21 @@
             this.cost.HeaderText = "Стоимость";
             this.cost.Name = "cost";
             this.cost.ReadOnly = true;
-            this.cost.Width = 103;
+            this.cost.Width = 127;
             // 
             // count
             // 
             this.count.HeaderText = "Количество";
             this.count.Name = "count";
             this.count.ReadOnly = true;
-            this.count.Width = 111;
+            this.count.Width = 135;
             // 
             // dish
             // 
             this.dish.HeaderText = "Блюдо";
             this.dish.Name = "dish";
             this.dish.ReadOnly = true;
-            this.dish.Width = 76;
+            this.dish.Width = 92;
             // 
             // query1
             // 
@@ -242,12 +243,13 @@
             this.query1.Controls.Add(this.orderDishes);
             this.query1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.query1.ForeColor = System.Drawing.Color.White;
-            this.query1.Location = new System.Drawing.Point(800, 600);
+            this.query1.Location = new System.Drawing.Point(5, 163);
             this.query1.Name = "query1";
             this.query1.Size = new System.Drawing.Size(771, 390);
             this.query1.TabIndex = 7;
             this.query1.TabStop = false;
             this.query1.Text = "Выходные данные";
+            this.query1.Visible = false;
             // 
             // label4
             // 
@@ -331,6 +333,7 @@
             this.querySelect.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.querySelect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.querySelect.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.querySelect.ForeColor = System.Drawing.Color.White;
             this.querySelect.FormattingEnabled = true;
             this.querySelect.Items.AddRange(new object[] {
             "Заказы, которые предстоит выполнить",
@@ -338,25 +341,29 @@
             "Суммарная выручка по заказам за период времени"});
             this.querySelect.Location = new System.Drawing.Point(94, 18);
             this.querySelect.Name = "querySelect";
-            this.querySelect.Size = new System.Drawing.Size(368, 28);
+            this.querySelect.Size = new System.Drawing.Size(409, 28);
             this.querySelect.TabIndex = 1;
+            this.querySelect.SelectionChangeCommitted += new System.EventHandler(this.querySelect_SelectionChangeCommitted);
             // 
             // selectOrders
             // 
             this.selectOrders.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.selectOrders.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.selectOrders.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.selectOrders.ForeColor = System.Drawing.Color.White;
             this.selectOrders.FormattingEnabled = true;
             this.selectOrders.Location = new System.Drawing.Point(81, 26);
             this.selectOrders.Name = "selectOrders";
             this.selectOrders.Size = new System.Drawing.Size(368, 28);
             this.selectOrders.TabIndex = 2;
+            this.selectOrders.SelectionChangeCommitted += new System.EventHandler(this.selectOrders_SelectionChangeCommitted);
             // 
             // user
             // 
             this.user.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.user.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.user.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.user.ForeColor = System.Drawing.Color.White;
             this.user.Location = new System.Drawing.Point(110, 61);
             this.user.Name = "user";
             this.user.Size = new System.Drawing.Size(339, 26);
@@ -367,6 +374,7 @@
             this.address.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.address.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.address.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.address.ForeColor = System.Drawing.Color.White;
             this.address.Location = new System.Drawing.Point(110, 93);
             this.address.Name = "address";
             this.address.Size = new System.Drawing.Size(339, 26);
@@ -377,6 +385,7 @@
             this.tel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.tel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.tel.ForeColor = System.Drawing.Color.White;
             this.tel.Location = new System.Drawing.Point(178, 125);
             this.tel.Name = "tel";
             this.tel.Size = new System.Drawing.Size(271, 26);
@@ -387,6 +396,7 @@
             this.dateto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.dateto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.dateto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.dateto.ForeColor = System.Drawing.Color.White;
             this.dateto.Location = new System.Drawing.Point(178, 157);
             this.dateto.Name = "dateto";
             this.dateto.Size = new System.Drawing.Size(271, 26);
@@ -397,6 +407,7 @@
             this.fullcost.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.fullcost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.fullcost.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.fullcost.ForeColor = System.Drawing.Color.White;
             this.fullcost.Location = new System.Drawing.Point(178, 189);
             this.fullcost.Name = "fullcost";
             this.fullcost.Size = new System.Drawing.Size(271, 26);
@@ -408,18 +419,20 @@
             this.query2.Controls.Add(this.label14);
             this.query2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.query2.ForeColor = System.Drawing.Color.White;
-            this.query2.Location = new System.Drawing.Point(0, 600);
+            this.query2.Location = new System.Drawing.Point(5, 163);
             this.query2.Name = "query2";
             this.query2.Size = new System.Drawing.Size(771, 390);
             this.query2.TabIndex = 8;
             this.query2.TabStop = false;
             this.query2.Text = "Выходные данные";
+            this.query2.Visible = false;
             // 
             // countOrders
             // 
             this.countOrders.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.countOrders.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.countOrders.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.countOrders.ForeColor = System.Drawing.Color.White;
             this.countOrders.Location = new System.Drawing.Point(203, 28);
             this.countOrders.Name = "countOrders";
             this.countOrders.Size = new System.Drawing.Size(271, 26);
@@ -448,12 +461,14 @@
             this.query3.TabIndex = 9;
             this.query3.TabStop = false;
             this.query3.Text = "Выходные данные";
+            this.query3.Visible = false;
             // 
             // revenue
             // 
             this.revenue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.revenue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.revenue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.revenue.ForeColor = System.Drawing.Color.White;
             this.revenue.Location = new System.Drawing.Point(102, 27);
             this.revenue.Name = "revenue";
             this.revenue.Size = new System.Drawing.Size(372, 26);
@@ -477,9 +492,9 @@
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.ClientSize = new System.Drawing.Size(780, 557);
+            this.Controls.Add(this.query1);
             this.Controls.Add(this.query3);
             this.Controls.Add(this.query2);
-            this.Controls.Add(this.query1);
             this.Controls.Add(this.inputType);
             this.Controls.Add(this.inputNumber);
             this.Controls.Add(this.labelForInput);

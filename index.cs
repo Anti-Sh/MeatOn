@@ -74,8 +74,6 @@ namespace MeatOn
                     break;
             }
         }
-
-
         private void button1_Click(object sender, EventArgs e)
         {
             void determineMultiplier() // Определение значения множителя
@@ -111,19 +109,34 @@ namespace MeatOn
                     DoQuery3();
                     break;
             }
-
-
+        }
+        private void selectOrders_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            DB.OpenConnection();
+            void fillDataGrid(int id)
+            {
+                orderDishes.Rows.Clear();
+                string query = $"SELECT md.name, o.count, o.count*md.cost FROM orders_food o JOIN menu_dishes md ON md.id=o.dish_id WHERE o.order_id={id}";
+                var dishes = DB.ExecuteQuery(query, 3);
+                foreach (var dish in dishes) orderDishes.Rows.Add(dish);
+            }
+            var index = selectOrders.SelectedIndex;
+            user.Text = orders[index][1] + " " + orders[index][2];
+            address.Text = orders[index][3];
+            dateto.Text = DateFromTimeStamp(Convert.ToInt64(orders[index][4])).ToString();
+            fullcost.Text = orders[index][5];
+            tel.Text = orders[index][6];
+            fillDataGrid(Convert.ToInt32(orders[index][0]));
+            DB.CloseConnection();
         }
         private void DoQuery1()
         {
             DB.OpenConnection();
-            string query = $"SELECT o.id, u.surname, u.name, u.address, o.delivery_timestamp, (SELECT SUM(orf.count * md.cost) FROM orders_food orf JOIN menu_dishes md ON orf.dish_id=md.id WHERE orf.order_id = o.id) FROM orders o JOIN users u ON o.customer = u.id WHERE o.completion=0 AND o.delivery_timestamp<{TimeStampWithAdd(inputValue)}";
-            orders = DB.ExecuteQuery(query, 6);
+            string query = $"SELECT o.id, u.surname, u.name, u.address, o.delivery_timestamp, (SELECT SUM(orf.count * md.cost) FROM orders_food orf JOIN menu_dishes md ON orf.dish_id=md.id WHERE orf.order_id = o.id), u.phone FROM orders o JOIN users u ON o.customer = u.id WHERE o.completion=0 AND o.delivery_timestamp<{TimeStampWithAdd(inputValue)}";
+            orders = DB.ExecuteQuery(query, 7);
             selectOrders.Items.Clear();
-            foreach (var order in orders)
-            {
-                selectOrders.Items.Add("Заказ #" + order[0]);
-            }
+            foreach (var order in orders) selectOrders.Items.Add("Заказ #" + order[0]);
+
             selectOrders.SelectedIndex = 0;
             selectOrders_SelectionChangeCommitted(null, null);
             DB.CloseConnection();
@@ -151,27 +164,6 @@ namespace MeatOn
         {
             DateTime unix = new DateTime(1970, 1, 1, 3, 0, 0, 0, DateTimeKind.Local);
             return (long)((DateTime.Now - unix).TotalSeconds + seconds);
-        }
-
-        private void selectOrders_SelectionChangeCommitted(object sender, EventArgs e)
-        {
-            void fillDataGrid(int id){
-                orderDishes.Rows.Clear();
-                string query = $"SELECT md.name, o.count, o.count*md.cost FROM orders_food o JOIN menu_dishes md ON md.id=o.dish_id WHERE o.order_id={id}";
-                var dishes = DB.ExecuteQuery(query, 3);
-                foreach (var dish in dishes) orderDishes.Rows.Add(dish);
-            }
-            var index = selectOrders.SelectedIndex;
-            user.Text = orders[index][1] + " " + orders[index][2];
-            address.Text = orders[index][3];
-            dateto.Text = DateFromTimeStamp(Convert.ToInt64(orders[index][4])).ToString();
-            fullcost.Text = orders[index][5];
-            fillDataGrid(Convert.ToInt32(orders[index][0]));
-        }
-
-        private void orderDishes_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
     }
 }
