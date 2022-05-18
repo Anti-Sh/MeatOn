@@ -52,11 +52,24 @@
             this.label8 = new System.Windows.Forms.Label();
             this.querySelect = new System.Windows.Forms.ComboBox();
             this.selectOrders = new System.Windows.Forms.ComboBox();
+            this.user = new System.Windows.Forms.TextBox();
+            this.address = new System.Windows.Forms.TextBox();
+            this.tel = new System.Windows.Forms.TextBox();
+            this.dateto = new System.Windows.Forms.TextBox();
+            this.fullcost = new System.Windows.Forms.TextBox();
+            this.query2 = new System.Windows.Forms.GroupBox();
+            this.countOrders = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.query3 = new System.Windows.Forms.GroupBox();
+            this.revenue = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inputNumber)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.orderDishes)).BeginInit();
             this.query1.SuspendLayout();
+            this.query2.SuspendLayout();
+            this.query3.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -182,12 +195,12 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.orderDishes.DefaultCellStyle = dataGridViewCellStyle2;
             this.orderDishes.GridColor = System.Drawing.Color.Black;
-            this.orderDishes.Location = new System.Drawing.Point(11, 240);
+            this.orderDishes.Location = new System.Drawing.Point(11, 246);
             this.orderDishes.Name = "orderDishes";
             this.orderDishes.ReadOnly = true;
             this.orderDishes.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.orderDishes.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.orderDishes.Size = new System.Drawing.Size(463, 144);
+            this.orderDishes.Size = new System.Drawing.Size(438, 136);
             this.orderDishes.TabIndex = 9;
             // 
             // cost
@@ -213,6 +226,11 @@
             // 
             // query1
             // 
+            this.query1.Controls.Add(this.fullcost);
+            this.query1.Controls.Add(this.dateto);
+            this.query1.Controls.Add(this.tel);
+            this.query1.Controls.Add(this.address);
+            this.query1.Controls.Add(this.user);
             this.query1.Controls.Add(this.selectOrders);
             this.query1.Controls.Add(this.label8);
             this.query1.Controls.Add(this.label7);
@@ -224,7 +242,7 @@
             this.query1.Controls.Add(this.orderDishes);
             this.query1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.query1.ForeColor = System.Drawing.Color.White;
-            this.query1.Location = new System.Drawing.Point(5, 163);
+            this.query1.Location = new System.Drawing.Point(800, 600);
             this.query1.Name = "query1";
             this.query1.Size = new System.Drawing.Size(771, 390);
             this.query1.TabIndex = 7;
@@ -236,7 +254,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.SystemColors.Control;
-            this.label4.Location = new System.Drawing.Point(11, 75);
+            this.label4.Location = new System.Drawing.Point(11, 64);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(93, 20);
             this.label4.TabIndex = 8;
@@ -258,7 +276,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.SystemColors.Control;
-            this.label3.Location = new System.Drawing.Point(11, 103);
+            this.label3.Location = new System.Drawing.Point(11, 96);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(67, 20);
             this.label3.TabIndex = 11;
@@ -269,18 +287,18 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.label5.ForeColor = System.Drawing.SystemColors.Control;
-            this.label5.Location = new System.Drawing.Point(11, 159);
+            this.label5.Location = new System.Drawing.Point(11, 160);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(68, 20);
+            this.label5.Size = new System.Drawing.Size(129, 20);
             this.label5.TabIndex = 12;
-            this.label5.Text = "Время:";
+            this.label5.Text = "Дата и время:";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.label6.ForeColor = System.Drawing.SystemColors.Control;
-            this.label6.Location = new System.Drawing.Point(11, 187);
+            this.label6.Location = new System.Drawing.Point(11, 192);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(107, 20);
             this.label6.TabIndex = 13;
@@ -291,7 +309,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.label7.ForeColor = System.Drawing.SystemColors.Control;
-            this.label7.Location = new System.Drawing.Point(11, 131);
+            this.label7.Location = new System.Drawing.Point(11, 128);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(161, 20);
             this.label7.TabIndex = 14;
@@ -302,7 +320,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.label8.ForeColor = System.Drawing.SystemColors.Control;
-            this.label8.Location = new System.Drawing.Point(11, 215);
+            this.label8.Location = new System.Drawing.Point(11, 223);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(137, 20);
             this.label8.TabIndex = 15;
@@ -334,6 +352,124 @@
             this.selectOrders.Size = new System.Drawing.Size(368, 28);
             this.selectOrders.TabIndex = 2;
             // 
+            // user
+            // 
+            this.user.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.user.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.user.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.user.Location = new System.Drawing.Point(110, 61);
+            this.user.Name = "user";
+            this.user.Size = new System.Drawing.Size(339, 26);
+            this.user.TabIndex = 16;
+            // 
+            // address
+            // 
+            this.address.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.address.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.address.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.address.Location = new System.Drawing.Point(110, 93);
+            this.address.Name = "address";
+            this.address.Size = new System.Drawing.Size(339, 26);
+            this.address.TabIndex = 17;
+            // 
+            // tel
+            // 
+            this.tel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.tel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.tel.Location = new System.Drawing.Point(178, 125);
+            this.tel.Name = "tel";
+            this.tel.Size = new System.Drawing.Size(271, 26);
+            this.tel.TabIndex = 18;
+            // 
+            // dateto
+            // 
+            this.dateto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.dateto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.dateto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.dateto.Location = new System.Drawing.Point(178, 157);
+            this.dateto.Name = "dateto";
+            this.dateto.Size = new System.Drawing.Size(271, 26);
+            this.dateto.TabIndex = 19;
+            // 
+            // fullcost
+            // 
+            this.fullcost.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.fullcost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.fullcost.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.fullcost.Location = new System.Drawing.Point(178, 189);
+            this.fullcost.Name = "fullcost";
+            this.fullcost.Size = new System.Drawing.Size(271, 26);
+            this.fullcost.TabIndex = 20;
+            // 
+            // query2
+            // 
+            this.query2.Controls.Add(this.countOrders);
+            this.query2.Controls.Add(this.label14);
+            this.query2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.query2.ForeColor = System.Drawing.Color.White;
+            this.query2.Location = new System.Drawing.Point(0, 600);
+            this.query2.Name = "query2";
+            this.query2.Size = new System.Drawing.Size(771, 390);
+            this.query2.TabIndex = 8;
+            this.query2.TabStop = false;
+            this.query2.Text = "Выходные данные";
+            // 
+            // countOrders
+            // 
+            this.countOrders.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.countOrders.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.countOrders.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.countOrders.Location = new System.Drawing.Point(203, 28);
+            this.countOrders.Name = "countOrders";
+            this.countOrders.Size = new System.Drawing.Size(271, 26);
+            this.countOrders.TabIndex = 20;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.label14.ForeColor = System.Drawing.SystemColors.Control;
+            this.label14.Location = new System.Drawing.Point(11, 30);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(187, 20);
+            this.label14.TabIndex = 10;
+            this.label14.Text = "Количество заказов:";
+            // 
+            // query3
+            // 
+            this.query3.Controls.Add(this.revenue);
+            this.query3.Controls.Add(this.label9);
+            this.query3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.query3.ForeColor = System.Drawing.Color.White;
+            this.query3.Location = new System.Drawing.Point(5, 163);
+            this.query3.Name = "query3";
+            this.query3.Size = new System.Drawing.Size(771, 390);
+            this.query3.TabIndex = 9;
+            this.query3.TabStop = false;
+            this.query3.Text = "Выходные данные";
+            // 
+            // revenue
+            // 
+            this.revenue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.revenue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.revenue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.revenue.Location = new System.Drawing.Point(102, 27);
+            this.revenue.Name = "revenue";
+            this.revenue.Size = new System.Drawing.Size(372, 26);
+            this.revenue.TabIndex = 20;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.label9.ForeColor = System.Drawing.SystemColors.Control;
+            this.label9.Location = new System.Drawing.Point(11, 30);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(85, 20);
+            this.label9.TabIndex = 10;
+            this.label9.Text = "Выручка:";
+            // 
             // index
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -341,6 +477,8 @@
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.ClientSize = new System.Drawing.Size(780, 557);
+            this.Controls.Add(this.query3);
+            this.Controls.Add(this.query2);
             this.Controls.Add(this.query1);
             this.Controls.Add(this.inputType);
             this.Controls.Add(this.inputNumber);
@@ -363,6 +501,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.orderDishes)).EndInit();
             this.query1.ResumeLayout(false);
             this.query1.PerformLayout();
+            this.query2.ResumeLayout(false);
+            this.query2.PerformLayout();
+            this.query3.ResumeLayout(false);
+            this.query3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -391,6 +533,17 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox selectOrders;
+        private System.Windows.Forms.TextBox fullcost;
+        private System.Windows.Forms.TextBox dateto;
+        private System.Windows.Forms.TextBox tel;
+        private System.Windows.Forms.TextBox address;
+        private System.Windows.Forms.TextBox user;
+        private System.Windows.Forms.GroupBox query2;
+        private System.Windows.Forms.TextBox countOrders;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.GroupBox query3;
+        private System.Windows.Forms.TextBox revenue;
+        private System.Windows.Forms.Label label9;
     }
 }
 
