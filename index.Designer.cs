@@ -37,26 +37,26 @@
             this.inputNumber = new System.Windows.Forms.NumericUpDown();
             this.inputType = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.querySelect = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.orderDishes = new System.Windows.Forms.DataGridView();
-            this.cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.count = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dish = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.count = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.query1 = new System.Windows.Forms.GroupBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.querySelect = new System.Windows.Forms.ComboBox();
-            this.selectOrders = new System.Windows.Forms.ComboBox();
-            this.user = new System.Windows.Forms.TextBox();
-            this.address = new System.Windows.Forms.TextBox();
-            this.tel = new System.Windows.Forms.TextBox();
-            this.dateto = new System.Windows.Forms.TextBox();
             this.fullcost = new System.Windows.Forms.TextBox();
+            this.dateto = new System.Windows.Forms.TextBox();
+            this.tel = new System.Windows.Forms.TextBox();
+            this.address = new System.Windows.Forms.TextBox();
+            this.user = new System.Windows.Forms.TextBox();
+            this.selectOrders = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.query2 = new System.Windows.Forms.GroupBox();
             this.countOrders = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
@@ -150,6 +150,24 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Входные данные";
             // 
+            // querySelect
+            // 
+            this.querySelect.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.querySelect.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.querySelect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.querySelect.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.querySelect.ForeColor = System.Drawing.Color.White;
+            this.querySelect.FormattingEnabled = true;
+            this.querySelect.Items.AddRange(new object[] {
+            "Заказы, которые предстоит выполнить",
+            "Количество заказов до определенной стоимости",
+            "Суммарная выручка по заказам за период времени"});
+            this.querySelect.Location = new System.Drawing.Point(94, 18);
+            this.querySelect.Name = "querySelect";
+            this.querySelect.Size = new System.Drawing.Size(409, 28);
+            this.querySelect.TabIndex = 1;
+            this.querySelect.SelectionChangeCommitted += new System.EventHandler(this.querySelect_SelectionChangeCommitted);
+            // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
@@ -177,7 +195,7 @@
             this.orderDishes.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(184)))), ((int)(((byte)(56)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
@@ -190,7 +208,7 @@
             this.cost});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(184)))), ((int)(((byte)(56)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
@@ -205,26 +223,26 @@
             this.orderDishes.Size = new System.Drawing.Size(438, 136);
             this.orderDishes.TabIndex = 9;
             // 
-            // cost
+            // dish
             // 
-            this.cost.HeaderText = "Стоимость";
-            this.cost.Name = "cost";
-            this.cost.ReadOnly = true;
-            this.cost.Width = 127;
+            this.dish.HeaderText = "Блюдо";
+            this.dish.Name = "dish";
+            this.dish.ReadOnly = true;
+            this.dish.Width = 76;
             // 
             // count
             // 
             this.count.HeaderText = "Количество";
             this.count.Name = "count";
             this.count.ReadOnly = true;
-            this.count.Width = 135;
+            this.count.Width = 111;
             // 
-            // dish
+            // cost
             // 
-            this.dish.HeaderText = "Блюдо";
-            this.dish.Name = "dish";
-            this.dish.ReadOnly = true;
-            this.dish.Width = 92;
+            this.cost.HeaderText = "Стоимость";
+            this.cost.Name = "cost";
+            this.cost.ReadOnly = true;
+            this.cost.Width = 103;
             // 
             // query1
             // 
@@ -252,100 +270,60 @@
             this.query1.Text = "Выходные данные";
             this.query1.Visible = false;
             // 
-            // label4
+            // fullcost
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.label4.ForeColor = System.Drawing.SystemColors.Control;
-            this.label4.Location = new System.Drawing.Point(11, 64);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(93, 20);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Заказчик:";
+            this.fullcost.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.fullcost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.fullcost.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.fullcost.ForeColor = System.Drawing.Color.White;
+            this.fullcost.Location = new System.Drawing.Point(178, 189);
+            this.fullcost.Name = "fullcost";
+            this.fullcost.Size = new System.Drawing.Size(271, 26);
+            this.fullcost.TabIndex = 20;
             // 
-            // label2
+            // dateto
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.SystemColors.Control;
-            this.label2.Location = new System.Drawing.Point(11, 30);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(64, 20);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "Заказ:";
+            this.dateto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.dateto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.dateto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.dateto.ForeColor = System.Drawing.Color.White;
+            this.dateto.Location = new System.Drawing.Point(178, 157);
+            this.dateto.Name = "dateto";
+            this.dateto.Size = new System.Drawing.Size(271, 26);
+            this.dateto.TabIndex = 19;
             // 
-            // label3
+            // tel
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.label3.ForeColor = System.Drawing.SystemColors.Control;
-            this.label3.Location = new System.Drawing.Point(11, 96);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(67, 20);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "Адрес:";
+            this.tel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.tel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.tel.ForeColor = System.Drawing.Color.White;
+            this.tel.Location = new System.Drawing.Point(178, 125);
+            this.tel.Name = "tel";
+            this.tel.Size = new System.Drawing.Size(271, 26);
+            this.tel.TabIndex = 18;
             // 
-            // label5
+            // address
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.label5.ForeColor = System.Drawing.SystemColors.Control;
-            this.label5.Location = new System.Drawing.Point(11, 160);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(129, 20);
-            this.label5.TabIndex = 12;
-            this.label5.Text = "Дата и время:";
+            this.address.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.address.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.address.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.address.ForeColor = System.Drawing.Color.White;
+            this.address.Location = new System.Drawing.Point(110, 93);
+            this.address.Name = "address";
+            this.address.Size = new System.Drawing.Size(339, 26);
+            this.address.TabIndex = 17;
             // 
-            // label6
+            // user
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.label6.ForeColor = System.Drawing.SystemColors.Control;
-            this.label6.Location = new System.Drawing.Point(11, 192);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(107, 20);
-            this.label6.TabIndex = 13;
-            this.label6.Text = "Стоимость:";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.label7.ForeColor = System.Drawing.SystemColors.Control;
-            this.label7.Location = new System.Drawing.Point(11, 128);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(161, 20);
-            this.label7.TabIndex = 14;
-            this.label7.Text = "Номер телефона:";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.label8.ForeColor = System.Drawing.SystemColors.Control;
-            this.label8.Location = new System.Drawing.Point(11, 223);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(137, 20);
-            this.label8.TabIndex = 15;
-            this.label8.Text = "Состав заказа:";
-            // 
-            // querySelect
-            // 
-            this.querySelect.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            this.querySelect.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.querySelect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.querySelect.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.querySelect.ForeColor = System.Drawing.Color.White;
-            this.querySelect.FormattingEnabled = true;
-            this.querySelect.Items.AddRange(new object[] {
-            "Заказы, которые предстоит выполнить",
-            "Количество заказов до определенной стоимости",
-            "Суммарная выручка по заказам за период времени"});
-            this.querySelect.Location = new System.Drawing.Point(94, 18);
-            this.querySelect.Name = "querySelect";
-            this.querySelect.Size = new System.Drawing.Size(409, 28);
-            this.querySelect.TabIndex = 1;
-            this.querySelect.SelectionChangeCommitted += new System.EventHandler(this.querySelect_SelectionChangeCommitted);
+            this.user.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.user.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.user.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.user.ForeColor = System.Drawing.Color.White;
+            this.user.Location = new System.Drawing.Point(110, 61);
+            this.user.Name = "user";
+            this.user.Size = new System.Drawing.Size(339, 26);
+            this.user.TabIndex = 16;
             // 
             // selectOrders
             // 
@@ -361,60 +339,82 @@
             this.selectOrders.TabIndex = 2;
             this.selectOrders.SelectionChangeCommitted += new System.EventHandler(this.selectOrders_SelectionChangeCommitted);
             // 
-            // user
+            // label8
             // 
-            this.user.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            this.user.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.user.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.user.ForeColor = System.Drawing.Color.White;
-            this.user.Location = new System.Drawing.Point(110, 61);
-            this.user.Name = "user";
-            this.user.Size = new System.Drawing.Size(339, 26);
-            this.user.TabIndex = 16;
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.label8.ForeColor = System.Drawing.SystemColors.Control;
+            this.label8.Location = new System.Drawing.Point(11, 223);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(137, 20);
+            this.label8.TabIndex = 15;
+            this.label8.Text = "Состав заказа:";
             // 
-            // address
+            // label7
             // 
-            this.address.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            this.address.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.address.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.address.ForeColor = System.Drawing.Color.White;
-            this.address.Location = new System.Drawing.Point(110, 93);
-            this.address.Name = "address";
-            this.address.Size = new System.Drawing.Size(339, 26);
-            this.address.TabIndex = 17;
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.label7.ForeColor = System.Drawing.SystemColors.Control;
+            this.label7.Location = new System.Drawing.Point(11, 128);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(161, 20);
+            this.label7.TabIndex = 14;
+            this.label7.Text = "Номер телефона:";
             // 
-            // tel
+            // label6
             // 
-            this.tel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            this.tel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.tel.ForeColor = System.Drawing.Color.White;
-            this.tel.Location = new System.Drawing.Point(178, 125);
-            this.tel.Name = "tel";
-            this.tel.Size = new System.Drawing.Size(271, 26);
-            this.tel.TabIndex = 18;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.label6.ForeColor = System.Drawing.SystemColors.Control;
+            this.label6.Location = new System.Drawing.Point(11, 192);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(107, 20);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "Стоимость:";
             // 
-            // dateto
+            // label5
             // 
-            this.dateto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            this.dateto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.dateto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.dateto.ForeColor = System.Drawing.Color.White;
-            this.dateto.Location = new System.Drawing.Point(178, 157);
-            this.dateto.Name = "dateto";
-            this.dateto.Size = new System.Drawing.Size(271, 26);
-            this.dateto.TabIndex = 19;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.label5.ForeColor = System.Drawing.SystemColors.Control;
+            this.label5.Location = new System.Drawing.Point(11, 160);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(129, 20);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "Дата и время:";
             // 
-            // fullcost
+            // label3
             // 
-            this.fullcost.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            this.fullcost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.fullcost.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.fullcost.ForeColor = System.Drawing.Color.White;
-            this.fullcost.Location = new System.Drawing.Point(178, 189);
-            this.fullcost.Name = "fullcost";
-            this.fullcost.Size = new System.Drawing.Size(271, 26);
-            this.fullcost.TabIndex = 20;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.label3.ForeColor = System.Drawing.SystemColors.Control;
+            this.label3.Location = new System.Drawing.Point(11, 96);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(67, 20);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "Адрес:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.SystemColors.Control;
+            this.label2.Location = new System.Drawing.Point(11, 30);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(64, 20);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Заказ:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.label4.ForeColor = System.Drawing.SystemColors.Control;
+            this.label4.Location = new System.Drawing.Point(11, 64);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(93, 20);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Заказчик:";
             // 
             // query2
             // 

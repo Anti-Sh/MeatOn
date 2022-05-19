@@ -71,6 +71,7 @@ namespace MeatOn
         }
         private void button1_Click(object sender, EventArgs e) // Обработчик события "Изменение выделения зафиксировано"
         {
+            multiplier = 1;
             void determineMultiplier() // Определение значения множителя
             {
                 switch (inputType.SelectedIndex) // Действие в зависимости от выбранного пункта выпадающего меню
@@ -91,8 +92,7 @@ namespace MeatOn
             switch (querySelect.SelectedIndex) // Действие в зависимости от выбранного пункта выпадающего меню
             {
                 case 0: // выбран первый элемент
-                    query1.Show(); // Включение видимости первой области вывода
-                    DoQuery1(); // Выполнение первого запроса
+                    if (DoQuery1()) query1.Show(); // Включение видимости первой области вывода, если запрос был выполнен успешно
                     break;
                 case 1: // выбран второй элемент
                     query2.Show(); // Включение видимости второй области вывода
@@ -123,17 +123,24 @@ namespace MeatOn
             fillDataGrid(Convert.ToInt32(orders[index][0])); // Заполнение DataGrid
             DB.CloseConnection(); // Закрытие соединения с БД
         }
-        private void DoQuery1() // Функция первого запроса
+        private bool DoQuery1() // Функция первого запроса
         {
             DB.OpenConnection(); // Открытие соединения с БД
             string query = $"SELECT o.id, u.surname, u.name, u.address, o.delivery_timestamp, (SELECT SUM(orf.count * md.cost) FROM orders_food orf JOIN menu_dishes md ON orf.dish_id=md.id WHERE orf.order_id = o.id), u.phone FROM orders o JOIN users u ON o.customer = u.id WHERE o.completion=0 AND o.delivery_timestamp<{TimeStampWithAdd(inputValue)}";
             orders = DB.ExecuteQuery(query, 7); // Извлечение результатов выполнения запросов
+            DB.CloseConnection(); // Закрытие соединения с БД
+            if (orders is null)
+            {
+                MessageBox.Show("Заказов, соответствующих фильтру не обнаружено!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
             selectOrders.Items.Clear(); // Удаление всех пунктов выпадающего списка
             foreach (var order in orders) selectOrders.Items.Add("Заказ #" + order[0]); // Добавление найденных заказов в выпадающий список
-
             selectOrders.SelectedIndex = 0; // изменение выбранного элемента
             selectOrders_SelectionChangeCommitted(null, null); // Вызов обработчика изменения выбранного элемента выпадающего списка
-            DB.CloseConnection(); // Закрытие соединения с БД
+            return true;
+
+
         }
         private void DoQuery2() // Функция второго запроса
         {
@@ -145,7 +152,7 @@ namespace MeatOn
         private void DoQuery3() // Функция третьего запроса
         {
             DB.OpenConnection(); // Открытие соединения с БД
-            string query = $"SELECT SUM(md.cost*orf.count) FROM orders_food orf JOIN menu_dishes md ON md.id=orf.dish_id JOIN orders o ON orf.order_id = o.id WHERE o.delivery_timestamp < {TimeStampWithAdd(inputValue)}";
+            string query = $"SELECT SUM(md.cost*orf.count) FROM orders_food orf JOIN menu_dishes md ON md.id=orf.dish_id JOIN orders o ON orf.order_id = o.id WHERE o.order_timestamp > {TimeStampWithAdd(-inputValue)}";
             revenue.Text = DB.ExecuteQuery(query); // Извлечение результата выполнения запросов
             DB.CloseConnection(); // Закрытие соединения с БД
         }
